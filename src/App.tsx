@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { SplashScreen } from './components/SplashScreen';
 import { HomeScreen, SearchFilters } from './components/HomeScreen';
 import { SearchResultsScreen } from './components/SearchResultsScreen';
@@ -14,7 +14,7 @@ import { Button } from './components/ui/button';
 import { Separator } from './components/ui/separator';
 import { Toaster } from './components/ui/sonner';
 import { Home, Search, MapPin, TrendingUp, Building2, Phone, Mail, X } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 type Screen = 
   | 'splash'
@@ -129,7 +129,7 @@ export default function App() {
   };
 
   const renderMobileMenu = () => (
-    <Sheet open={state.showMobileMenu} onOpenChange={(open) => updateState({ showMobileMenu: open })}>
+    <Sheet open={state.showMobileMenu} onOpenChange={(open: boolean) => updateState({ showMobileMenu: open })}>
       <SheetContent side="left" className="w-72">
         <div className="flex items-center justify-between mb-6">
           <div>
